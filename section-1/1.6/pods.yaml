@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-a
+  labels: 
+    app: microservice-1
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.15.8
+    ports:
+    - name: http
+      containerPort: 80
+    command: ["sh", "-c", "echo \"Pod A\" > \"/usr/share/nginx/html/pod-id.html\" && nginx -g \"daemon off;\""]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-b
+  labels: 
+    app: microservice-1
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.15.8
+    ports:
+    - name: http
+      containerPort: 80
+    command: ["sh", "-c", "echo \"Pod B\" > \"/usr/share/nginx/html/pod-id.html\" && nginx -g \"daemon off;\""]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-c
+  labels: 
+    app: microservice-2
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.15.8
+    ports:
+    - name: http
+      containerPort: 80
+    command: ["sh", "-c", "echo \"Pod C\" > \"/usr/share/nginx/html/pod-id.html\" && nginx -g \"daemon off;\""]

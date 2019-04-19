@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-external-service
+spec:
+  type: ExternalName
+  externalName: www.espn.com
+  ports:
+  - port: 80
+    protocol: TCP
